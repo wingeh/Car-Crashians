@@ -2,12 +2,12 @@ Kar Krashian Figma link - https://www.figma.com/files/project/27462163/First-pro
 
 # Kar Krashians Agreements
 
-What role(s) will everyone on the team hold: 
-All - Features
-Andrew – The Proletariat
-Ryan – API Czar
-Lauryn – G.U.Us Commrade
-Mike – The “Commie” 
+What role(s) will everyone on the team hold:  
+All - Features  
+Andrew – The Proletariat  
+Ryan – API Czar  
+Lauryn – G.U.Us Commrade  
+Mike – The “Commie”  
 
 **How often will you have meetings? How long?**
 Thursday – 6:00pm

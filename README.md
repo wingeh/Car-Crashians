@@ -59,24 +59,25 @@ Maybe myself, as I’m comfortable with github and also already know how to use 
 Avoiding the car-crashians
 
 ## Project Description
-In a few sentences, describe the following:
-•	Anyone with cars, bikers looking for safe roads
-•	Inform the public of safe routes of travel depending on upkeep and accident history
-•	Used online or on mobile to find safe travel routes
+In a few sentences, describe the following:  
+•	Anyone with cars, bikers looking for safe roads  
+•	Inform the public of safe routes of travel depending on upkeep and accident history  
+•	Used online or on mobile to find safe travel routes  
 
 ## Technical Details
-List out the following:
-•	Server-side APIs used (at least 2)
-•	CSS Framework used (other than Bootstrap)
-•	Additional API/Libraries used e.g. jQuery, moment, quaggajs, d3 charts (at least 1)
+List out the following:  
+•	Server-side APIs used (at least 2)  
+•	CSS Framework used (other than Bootstrap)  
+•	Additional API/Libraries used e.g. jQuery, moment, quaggajs, d3 charts (at least 1)  
 
 ## Group Leader
-You must choose amongst your group who the leader is, the leader's additional responsibilities are:
-•	Manage the GitHub repo for the project
-•	Ensure everyone is completing their work
-•	Aid in distributing work fairly among teammates
-•	Facilitate group calls and zoom meetings (could be assigned to “communications manager”)
-•	Filling out this proposal document and providing it to the instructional staff  (could be assigned to “communications manager”)
+You must choose amongst your group who the leader is, the leader's additional responsibilities are:  
+•	Manage the GitHub repo for the project  
+•	Ensure everyone is completing their work  
+•	Aid in distributing work fairly among teammates  
+•	Facilitate group calls and zoom meetings (could be assigned to “communications manager”)  
+•	Filling out this proposal document and providing it to the instructional staff  (could be assigned to “communications manager”)  
 
-The group leader is not just a project manager, it is expected for them to directly contribute to the project code as well.
-Maybe myself, as I’m comfortable with github and also already know how to use zoom meetings. To be honest, this part can be spread out a bit and be inclusive but we shall see.
+The group leader is not just a project manager, it is expected for them to directly contribute to the project code as well.  
+
+Maybe myself, as I’m comfortable with github and also already know how to use zoom meetings. To be honest, this part can be spread out a bit and be inclusive but we shall see.  

@@ -1,16 +1,21 @@
 # Kar Krashians Agreements
+
 What role(s) will everyone on the team hold: 
 All - Features
 Andrew – The Proletariat
 Ryan – API Czar
 Lauryn – G.U.Us Commrade
 Mike – The “Commie” 
+
 How often will you have meetings? How long? 
 Thursday – 6:00pm
+
 How will you keep track of tasks? 
 That software of not started/in progress/complete
+
 What if someone misses a deadline? 
 We build in leeway for there to account for incomplete portions. Ambitious deadlines.
+
 What happens if someone misses a meeting?  What is their responsibility? The team’s responsibility?
 We provide notes after the meeting, and if a person misses the meeting, a written report can be submitted to the group to keep everyone updated. Minutes will be posted in the slack.
 
@@ -24,27 +29,22 @@ Depending on the nature of it, head on. Get the hard part out of the way, then t
 Other Group Agreements:
 
 
-
-
-
-
-
-Project Name
+# Project Name
 Avoiding the car-crashians
 
-Project Description
+# Project Description
 In a few sentences, describe the following:
 •	Anyone with cars, bikers looking for safe roads
 •	Inform the public of safe routes of travel depending on upkeep and accident history
 •	Used online or on mobile to find safe travel routes
 
-Technical Details
+# Technical Details
 List out the following:
 •	Server-side APIs used (at least 2)
 •	CSS Framework used (other than Bootstrap)
 •	Additional API/Libraries used e.g. jQuery, moment, quaggajs, d3 charts (at least 1)
 
-Group Leader
+# Group Leader
 You must choose amongst your group who the leader is, the leader's additional responsibilities are:
 •	Manage the GitHub repo for the project
 •	Ensure everyone is completing their work

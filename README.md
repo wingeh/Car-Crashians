@@ -1,5 +1,4 @@
-Kar Krashian Figma link - https://www.figma.com/files/project/27462163/First-project
-
+Kar Krashian Figma link - https://www.figma.com/file/P1Yy32Y5XfppYzSix3aVnJ/Kar-Krashians-Mobile?node-id=0%3A1
 # Kar Krashians Agreements
 
 What role(s) will everyone on the team hold:  

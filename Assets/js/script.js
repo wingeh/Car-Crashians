@@ -22,8 +22,8 @@ submit.on("click", function (event) {
         for (var i = 0; i < data.length; i++) {
             for (var j = 0; j < data[i].features.length; j++) {
                 // console.log(data[0].features[j].attributes)
-                if (data[2].features[j].attributes.Location.toLowerCase().includes(streetOne.val().toLowerCase()) &&
-                data[2].features[j].attributes.Location.toLowerCase().includes(streetTwo.val().toLowerCase())) {
+                if (data[i].features[j].attributes.Location.toLowerCase().includes(streetOne.val().toLowerCase()) &&
+                data[i].features[j].attributes.Location.toLowerCase().includes(streetTwo.val().toLowerCase())) {
                     console.log(data[i].features[j].attributes)
                 }; 
             };

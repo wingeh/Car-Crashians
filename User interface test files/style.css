@@ -48,7 +48,7 @@ header{
 
 .card{
     width: 30%;
-    height: 500px;
+    height: 300px;
     display: block;
     float: left;
     margin-top: 40px;
@@ -69,16 +69,23 @@ header{
     
 }
 
-#outputArea{
+#outPutArea{
+    background-color: rgb(75, 73, 74);
+    height: 50%;
     width: 50%;
-    height: 200px;
-    background-color: rgb(255, 255, 255);
-    margin-top: 10px;;
-    margin-bottom: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+h2{
     font-family: 'Orbitron', sans-serif;
+    color: rgb(196, 160, 107);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align:center;
+    font-size: larger;
+
 }
 
 .button{
@@ -132,6 +139,8 @@ P{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border-color: white;
+    border: 5px solid rgb(196, 160, 107);
 
 }
 

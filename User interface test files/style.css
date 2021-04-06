@@ -158,6 +158,13 @@ h4{
     #aboutPageImage{
         width: 70%;
     }
+    img{
+        margin-bottom: 20px;
+    }
+    #outPutArea{
+        width: 80%;
+        height: 300px;
+    }
 }
 
 @media only screen and (max-width: 500px) {

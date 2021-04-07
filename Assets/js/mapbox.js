@@ -9,15 +9,6 @@ var submit = $("#submit");
 
 var mapboxglaccessToken = 'pk.eyJ1Ijoid2luZ2VoIiwiYSI6ImNrbXMwYnZxaTBjcXkybm14enczN281ZXEifQ.bsBm9JlGjhos_-74rAL1uA';
 
-// initializing map
-var map = new mapboxgl.Map({
-	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v10',
-	center: [-75.699234, 45.424807], // starting position
-	zoom: 12
-  });
-
-
 // listen for click event
 submit.on("click", function (event) {
 

@@ -34,7 +34,8 @@ Promise.all ([
 })
 .then (function (data) {
 		var start = [data[0].features[0].center[0], data[0].features[0].center[1]];
-		//console.log (start);
+		console.log (start);
+		return (start);
 	});
 
 //get end location coordinates
@@ -48,12 +49,14 @@ Promise.all ([
 })
 .then (function (data) {
 	var end = [data[0].features[0].center[0], data[0].features[0].center[1]];
-	//console.log (end);
-
+	console.log (end);
+	return (end);
 	
 });
 
-getRoute ();
+console.log (start);
+console.log (end);
+getRoute (start, end);
 
 // create a function to make a directions request
 function getRoute(start, end) {

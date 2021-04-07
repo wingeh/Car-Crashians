@@ -1,7 +1,7 @@
 /* CORE STYLES */
 :root {
     --primary-color: rgba(13, 110, 139, 0.75);
-    --overlay-color: rgba(204, 168, 48, 0.85);
+    --overlay-color: rgb(196, 160, 107);
     --menu-speed: 0.75s;
 }
 
@@ -30,8 +30,8 @@
     top: 0;
     left: 0;
     z-index: 1;
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 76px;
     padding: 0.5rem;
     background-color: rgb(194, 194, 194);
     display: flex;

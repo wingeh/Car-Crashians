@@ -23,9 +23,10 @@ var endLocation = document.getElementById("street2").value;
 var geocodingStart = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + startLocation.replace(/ /g, '%20') + '.json?access_token=' + mapboxglaccessToken;
 var geocodingEnd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + endLocation.replace(/ /g, '%20') + '.json?access_token=' + mapboxglaccessToken;
 
-//get start location coordinates
+//get start and end location coordinates
 Promise.all ([
-    fetch(geocodingStart), 
+    fetch(geocodingStart),
+	fetch(geocodingEnd),
 ])
 .then (function (responses) {
     return Promise.all(responses.map(function (response) {
@@ -35,33 +36,18 @@ Promise.all ([
 .then (function (data) {
 		var start = [data[0].features[0].center[0], data[0].features[0].center[1]];
 		console.log (start);
-		return (start);
+
+		var end = [data[1].features[0].center[0], data[1].features[0].center[1]];
+		console.log (end);
+		
+		getRoute (start, end);
 	});
 
-//get end location coordinates
-Promise.all ([
-	fetch(geocodingEnd), 
-])
-.then (function (responses) {
-	return Promise.all(responses.map(function (response) {
-	return response.json();
-	}));   
-})
-.then (function (data) {
-	var end = [data[0].features[0].center[0], data[0].features[0].center[1]];
-	console.log (end);
-	return (end);
-	
-});
-
-console.log (start);
-console.log (end);
-getRoute (start, end);
 
 // create a function to make a directions request
 function getRoute(start, end) {
 	console.log("getRoute has been called")
-	console.log("Start: " + start[0])
+	console.log("Start: " + start)
 	console.log("End: " + end)
   // make a directions request using driving+traffic profile
   // an arbitrary start will always be the same

@@ -48,6 +48,9 @@ header{
     margin-right: auto;
 }
 
+#instructions {
+    color: #fff;
+}
 
 #inputTitle{
     color: rgb(196, 160, 107);

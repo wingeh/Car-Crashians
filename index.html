@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kar Krashians Test</title>
+    <title>Kar Krashians</title>
     <script src="https://kit.fontawesome.com/061cc7b869.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Assets/css/reset.css">
     <link rel="stylesheet" href="Assets/css/menu.css">
@@ -16,15 +16,21 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 
+</head>
+
 
 <body>
   <header>
     <h1>Avoiding the Kar Krashians</h1>
 </header>
+
+<h2>Instructions:</h2>
+<p>Click search button above and enter street names.</p>
+<p>Scroll down below the map to get your results!</p>
   
   <div  id="map" class="box">
     <div id="map-content">
-      
+
     </div>    
   </div>
 
@@ -76,6 +82,175 @@
 </overlay>
 </section>
 
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoid2luZ2VoIiwiYSI6ImNrbXMwYnZxaTBjcXkybm14enczN281ZXEifQ.bsBm9JlGjhos_-74rAL1uA';
+var map = new mapboxgl.Map({
+container: 'map-content',
+style: 'mapbox://styles/mapbox/streets-v10',
+center: [-75.699234, 45.424807], // starting position
+zoom: 12
+});
+// set the bounds of the map
+//var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
+//map.setMaxBounds(bounds);
+
+// initialize the map canvas to interact with later
+var canvas = map.getCanvasContainer();
+
+// an arbitrary start will always be the same
+// only the end or destination will change
+//var start = [-75.699234, 45.424807];
+
+// create a function to make a directions request
+function getRoute(start, end) {
+// make a directions request using driving+traffic profile
+// an arbitrary start will always be the same
+// only the end or destination will change
+//var start = [-75.699234, 45.424807];
+//var url = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+
+var url = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+
+// make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+var req = new XMLHttpRequest();
+req.open('GET', url, true);
+req.onload = function() {
+  var json = JSON.parse(req.response);
+  var data = json.routes[0];
+  var route = data.geometry.coordinates;
+  var geojson = {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates: route
+    }
+  };
+  // if the route already exists on the map, reset it using setData
+  if (map.getSource('route')) {
+    map.getSource('route').setData(geojson);
+  } else { // otherwise, make a new request
+    map.addLayer({
+      id: 'route',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'LineString',
+            coordinates: geojson
+          }
+        }
+      },
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#3887be',
+        'line-width': 5,
+        'line-opacity': 0.75
+      }
+    });
+  }
+  // add turn instructions here at the end
+          // get the sidebar and add the instructions
+          var instructions = document.getElementById('instructions');
+var steps = data.legs[0].steps;
+
+var tripInstructions = [];
+for (var i = 0; i < steps.length; i++) {
+tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;
+};
+};
+req.send();
+}
+
+// map.on('load', function() {
+// // make an initial directions request that
+// // starts and ends at the same location
+// getRoute(start);
+
+// // Add starting point to the map
+// map.addLayer({
+//   id: 'point',
+//   type: 'circle',
+//   source: {
+//     type: 'geojson',
+//     data: {
+//       type: 'FeatureCollection',
+//       features: [{
+//         type: 'Feature',
+//         properties: {},
+//         geometry: {
+//           type: 'Point',
+//           coordinates: start
+//         }
+//       }
+//       ]
+//     }
+//   },
+//   paint: {
+//     'circle-radius': 10,
+//     'circle-color': '#3887be'
+//   }
+// });
+
+// map.on('click', function(e) {
+// var coordsObj = e.lngLat;
+// canvas.style.cursor = '';
+// var coords = Object.keys(coordsObj).map(function(key) {
+//   return coordsObj[key];
+// });
+// var end = {
+//   type: 'FeatureCollection',
+//   features: [{
+//     type: 'Feature',
+//     properties: {},
+//     geometry: {
+//       type: 'Point',
+//       coordinates: coords
+//     }
+//   }
+//   ]
+// };
+// if (map.getLayer('end')) {
+//   map.getSource('end').setData(end);
+// } else {
+//   map.addLayer({
+//     id: 'end',
+//     type: 'circle',
+//     source: {
+//       type: 'geojson',
+//       data: {
+//         type: 'FeatureCollection',
+//         features: [{
+//           type: 'Feature',
+//           properties: {},
+//           geometry: {
+//             type: 'Point',
+//             coordinates: coords
+//           }
+//         }]
+//       }
+//     },
+//     paint: {
+//       'circle-radius': 10,
+//       'circle-color': '#f30'
+//     }
+//   });
+// }
+// getRoute(coords);
+// });
+// });
+
+
+
+  </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="Assets/js/fixedmenu.js"></script> 

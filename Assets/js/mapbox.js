@@ -116,32 +116,12 @@ function getRoute(start, end) {
   }
 });
 
-
-
-// function getDirections (){
-
-// 	var url = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
 	var collisionsByLocation = "https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Traffic_Collisions_by_Location_2015_to_2019/FeatureServer/0/query?where=1%3D1&outFields=Location,Total_Collisions,F2016_Total,F2017_Total,F2018_Total,F2019_Total,Total_Pedestrians,F2015_Pedestrians,F2016_Pedestrians,F2017_Pedestrians,F2018_Pedestrians,F2019_Pedestrians,F2015_Total&outSR=4326&f=json"
     var intersectionVolume = "https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Transportation_Intersection_Volumes_2019/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
     var tabularCollisionData = "https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/2019_Tabular_Transportation_Collision_Data/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
 
-// 	  // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-// 	  var req = new XMLHttpRequest();
-// 	  req.open('GET', url, true);
-// 	  req.onload = function() {
-// 		var json = JSON.parse(req.response);
-// 		var data = json.routes[0];
-// 		var route = data.geometry.coordinates;
-// 		var geojson = {
-// 		  type: 'Feature',
-// 		  properties: {},
-// 		  geometry: {
-// 			type: 'LineString',
-// 			coordinates: route
-// 		  }
-// 		};
 	
-// 		//RYANS KINGDOM START
+// RYAN'S KINGDOM START
 var intersectionArr = [];
 
 for (var i = 0; i < data.legs[0].steps.length; i++) {
@@ -220,115 +200,4 @@ Promise.all ([
 });
 
 
-// 		//RYANS KINGDOM END
-		
-// 		// if the route already exists on the map, reset it using setData
-// 		if (map.getSource('route')) {
-// 		  map.getSource('route').setData(geojson);
-// 		} else { // otherwise, make a new request
-// 		  map.addLayer({
-// 			id: 'route',
-// 			type: 'line',
-// 			source: {
-// 			  type: 'geojson',
-// 			  data: {
-// 				type: 'Feature',
-// 				properties: {},
-// 				geometry: {
-// 				  type: 'LineString',
-// 				  coordinates: geojson
-// 				}
-// 			  }
-// 			},
-// 			layout: {
-// 			  'line-join': 'round',
-// 			  'line-cap': 'round'
-// 			},
-// 			paint: {
-// 			  'line-color': '#3887be',
-// 			  'line-width': 5,
-// 			  'line-opacity': 0.75
-// 			}
-// 		  });
-// 		}
-// 		// add turn instructions here at the end
-// 	  };
-// 	  req.send();
-// 	};
-
-// 	map-content.on('load', function() {
-// 		// make an initial directions request that
-// 		// starts and ends at the same location
-// 		getRoute(start);
-	  
-// 		// Add starting point to the map
-// 		map.addLayer({
-// 		  id: 'point',
-// 		  type: 'circle',
-// 		  source: {
-// 			type: 'geojson',
-// 			data: {
-// 			  type: 'FeatureCollection',
-// 			  features: [{
-// 				type: 'Feature',
-// 				properties: {},
-// 				geometry: {
-// 				  type: 'Point',
-// 				  coordinates: start
-// 				}
-// 			  }
-// 			  ]
-// 			}
-// 		  },
-// 		  paint: {
-// 			'circle-radius': 10,
-// 			'circle-color': '#3887be'
-// 		  }
-// 		});
-// 		map.on('click', function(e) {
-// 		var coordsObj = e.lngLat;
-// 		canvas.style.cursor = '';
-// 		var coords = Object.keys(coordsObj).map(function(key) {
-// 		  return coordsObj[key];
-// 		});
-// 		var end = {
-// 		  type: 'FeatureCollection',
-// 		  features: [{
-// 			type: 'Feature',
-// 			properties: {},
-// 			geometry: {
-// 			  type: 'Point',
-// 			  coordinates: coords
-// 			}
-// 		  }
-// 		  ]
-// 		};
-// 		if (map.getLayer('end')) {
-// 		  map.getSource('end').setData(end);
-// 		} else {
-// 		  map.addLayer({
-// 			id: 'end',
-// 			type: 'circle',
-// 			source: {
-// 			  type: 'geojson',
-// 			  data: {
-// 				type: 'FeatureCollection',
-// 				features: [{
-// 				  type: 'Feature',
-// 				  properties: {},
-// 				  geometry: {
-// 					type: 'Point',
-// 					coordinates: coords
-// 				  }
-// 				}]
-// 			  }
-// 			},
-// 			paint: {
-// 			  'circle-radius': 10,
-// 			  'circle-color': '#f30'
-// 			}
-// 		  });
-// 		}
-// 		getRoute(coords);
-// 	  });
-// 	  });
+// RYAN'S KINGDOM END

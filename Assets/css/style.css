@@ -28,6 +28,14 @@ header{
     text-align: center;
 }
 
+#aboutHeader{
+    height: 100px;
+}
+
+#aboutTitle{
+    margin-bottom: 70px;
+}
+
 
 
 

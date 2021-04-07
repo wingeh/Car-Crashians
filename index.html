@@ -90,6 +90,7 @@ style: 'mapbox://styles/mapbox/streets-v10',
 center: [-75.699234, 45.424807], // starting position
 zoom: 12
 });
+
 // set the bounds of the map
 //var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
 //map.setMaxBounds(bounds);
@@ -163,41 +164,41 @@ var steps = data.legs[0].steps;
 var tripInstructions = [];
 for (var i = 0; i < steps.length; i++) {
 tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;
+instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
 };
 };
 req.send();
 }
 
-// map.on('load', function() {
-// // make an initial directions request that
-// // starts and ends at the same location
-// getRoute(start);
+ map.on('load', function() {
+ // make an initial directions request that
+ // starts and ends at the same location
+ getRoute(start);
 
 // // Add starting point to the map
-// map.addLayer({
-//   id: 'point',
-//   type: 'circle',
-//   source: {
-//     type: 'geojson',
-//     data: {
-//       type: 'FeatureCollection',
-//       features: [{
-//         type: 'Feature',
-//         properties: {},
-//         geometry: {
-//           type: 'Point',
-//           coordinates: start
-//         }
-//       }
-//       ]
-//     }
-//   },
-//   paint: {
-//     'circle-radius': 10,
-//     'circle-color': '#3887be'
-//   }
-// });
+map.addLayer({
+   id: 'point',
+   type: 'circle',
+   source: {
+     type: 'geojson',
+    data: {
+       type: 'FeatureCollection',
+       features: [{
+         type: 'Feature',
+        properties: {},
+                 geometry: {
+           type: 'Point',
+           coordinates: start
+        }
+       }
+       ]
+     }
+   },
+   paint: {
+    'circle-radius': 10,
+     'circle-color': '#3887be'
+   }
+ });
 
 // map.on('click', function(e) {
 // var coordsObj = e.lngLat;
@@ -220,32 +221,32 @@ req.send();
 // if (map.getLayer('end')) {
 //   map.getSource('end').setData(end);
 // } else {
-//   map.addLayer({
-//     id: 'end',
-//     type: 'circle',
-//     source: {
-//       type: 'geojson',
-//       data: {
-//         type: 'FeatureCollection',
-//         features: [{
-//           type: 'Feature',
-//           properties: {},
-//           geometry: {
-//             type: 'Point',
-//             coordinates: coords
-//           }
-//         }]
-//       }
-//     },
-//     paint: {
-//       'circle-radius': 10,
-//       'circle-color': '#f30'
-//     }
-//   });
-// }
-// getRoute(coords);
-// });
-// });
+
+  map.addLayer({
+     id: 'end',
+     type: 'circle',
+     source: {
+       type: 'geojson',
+       data: {
+         type: 'FeatureCollection',
+         features: [{
+           type: 'Feature',
+           properties: {},
+           geometry: {
+             type: 'Point',
+             coordinates: coords
+           }
+         }]
+       }
+     },
+     paint: {
+       'circle-radius': 10,
+       'circle-color': '#f30'
+     }
+   });
+ }
+ getRoute(coords);
+ });/ });
 
 
 

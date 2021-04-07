@@ -1,0 +1,47 @@
+:root {
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgb(196, 160, 107);
+}
+
+.fa-search {
+    font-size: 48px;
+}
+
+#route { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(20, 20, 20);
+}
+
+.container {
+    display: flex;
+    border: black solid 2px;
+}
+
+.menu-wrap .current-route {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 76px;
+    background-image: linear-gradient(to top left, var(--overlay-color), grey);
+} 
+
+.map-placeholder {
+    display: flex;
+}
+
+.menu-wrap .menu > div > div > form > .buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #route {
+        margin-left: 4.5rem;
+        font-size: 25px;
+    }
+}

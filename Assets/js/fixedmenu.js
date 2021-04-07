@@ -13,3 +13,4 @@ search.addEventListener("click", function(event) {
     event.preventDefault()  
     currentRoute()
 })
+

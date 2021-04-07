@@ -1,6 +1,7 @@
 console.log ("mapbox.js called")
 
 var start = [];
+var end = [];
 var startLocation;
 var endLocation;
 // var endLocation = $("#endLocation");

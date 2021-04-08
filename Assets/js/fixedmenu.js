@@ -7,6 +7,7 @@ const search = document.getElementById("search")
 
 function currentRoute() {
     route.textContent = street1.value + " to " + street2.value
+    
 }
 
 search.addEventListener("click", function(event) { 

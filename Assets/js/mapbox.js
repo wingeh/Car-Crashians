@@ -14,9 +14,9 @@ var mapboxglaccessToken = 'pk.eyJ1Ijoid2luZ2VoIiwiYSI6ImNrbXMwYnZxaTBjcXkybm14en
 // listen for click event
 submit.on("click", function (event) {
 
-	function () { 
-		$('#toggle').removeAttr('Checked'); 
-	}
+	// function () { 
+	// 	$('#toggle').removeAttr('Checked'); 
+	// }
 //prevent refresh
 event.preventDefault();
 

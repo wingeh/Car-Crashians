@@ -21,8 +21,8 @@ var startLocation = document.getElementById("street1").value;
 var endLocation = document.getElementById("street2").value;
 
 //collect starting and ending point, codify user inputer, form API request
-var geocodingStart = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + startLocation.replace(/ /g, '%20') + '.json?access_token=' + mapboxglaccessToken;
-var geocodingEnd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + endLocation.replace(/ /g, '%20') + '.json?access_token=' + mapboxglaccessToken;
+var geocodingStart = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + startLocation.replace(/ /g, '%20') + '.json?proximity=-75.699234,45.424807&access_token=' + mapboxglaccessToken;
+var geocodingEnd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + endLocation.replace(/ /g, '%20') + '.json?proximity=-75.699234,45.424807&access_token=' + mapboxglaccessToken;
 
 //get start and end location coordinates
 Promise.all ([

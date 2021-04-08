@@ -142,7 +142,7 @@ Promise.all ([
 	} else if (uniqueCounterArr.length >= 3) {
 	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kourtney_Kardashian_2_2009.jpg")
 	  console.log("Kourtney")
-	  ranking.text("Your route is a Kourtney. It very safe")
+	  ranking.text("Your route is a Kourtney. It's very safe")
 	 
 	}  else  {
 	  image.attr("src", "http://www.gstatic.com/tv/thumb/persons/616912/616912_v9_ba.jpg")

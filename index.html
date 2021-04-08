@@ -96,6 +96,22 @@ center: [-75.699234, 45.424807], // starting position
 zoom: 12
 });
 
+// set the bounds of the map
+//var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
+//map.setMaxBounds(bounds);
+
+// initialize the map canvas to interact with later
+var canvas = map.getCanvasContainer();
+
+// an arbitrary start will always be the same
+// only the end or destination will change
+//var start = [-75.699234, 45.424807];
+
+map.on('load', function() {
+  // make an initial directions request that
+  // starts and ends at the same location
+  // getRoute(start);
+
   // Add starting point to the map
   map.addLayer({
     id: 'point',
@@ -120,7 +136,13 @@ zoom: 12
       'circle-color': '#3887be'
     }
   });
-
+  
+  map.on('click', function(e) {
+  var coordsObj = e.lngLat;
+  canvas.style.cursor = '';
+  var coords = Object.keys(coordsObj).map(function(key) {
+    return coordsObj[key];
+  });
   var end = {
     type: 'FeatureCollection',
     features: [{
@@ -159,7 +181,9 @@ zoom: 12
       }
     });
   }
-
+  getRoute(coords);
+});
+});
   </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

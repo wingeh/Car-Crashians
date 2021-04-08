@@ -38,13 +38,6 @@ Promise.all ([
 		
 		
 		getRoute (start, end);
-
-		map = new mapboxgl.Map({
-			container: 'map-content',
-			style: 'mapbox://styles/mapbox/streets-v10',
-			center: start, // starting position
-			zoom: 12
-			});
 	});
 
 

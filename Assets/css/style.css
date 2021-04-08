@@ -12,6 +12,9 @@ body{
     background-size: 1700px 1000px;
 }
 
+.box:not(:last-child) {
+    margin-bottom: -2000;
+}
 
 header{
     background-color:rgb(24, 22, 23);
@@ -183,12 +186,12 @@ img{
     #aboutPageImage{
         width: 70%;
     }
-    #startLocation{
+    #map{
         margin-bottom: 20px;
     }
     #endLocation{
         width: 80%;
-        height: 300px;
+        height: 700px;
     }
     #map-content{
         

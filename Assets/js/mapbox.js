@@ -1,10 +1,7 @@
-console.log ("mapbox.js called")
-
 var start = [];
 var end = [];
 var startLocation;
 var endLocation;
-// var endLocation = $("#endLocation");
 
 var submit = $("#search");
 var image = $("#image");
@@ -14,10 +11,6 @@ var mapboxglaccessToken = 'pk.eyJ1Ijoid2luZ2VoIiwiYSI6ImNrbXMwYnZxaTBjcXkybm14en
 // listen for click event
 submit.on("click", function (event) {
 
-	// function () { 
-	// 	$('#toggle').removeAttr('Checked'); 
-	// }
-//prevent refresh
 event.preventDefault();
 
 var startLocation = document.getElementById("street1").value;
@@ -39,10 +32,10 @@ Promise.all ([
 })
 .then (function (data) {
 		var start = [data[0].features[0].center[0], data[0].features[0].center[1]];
-		console.log (start);
+		
 
 		var end = [data[1].features[0].center[0], data[1].features[0].center[1]];
-		console.log (end);
+		
 		
 		getRoute (start, end);
 	});
@@ -50,9 +43,7 @@ Promise.all ([
 
 // create a function to make a directions request
 function getRoute(start, end) {
-	console.log("getRoute has been called")
-	console.log("Start: " + start)
-	console.log("End: " + end)
+	
   // make a directions request using driving+traffic profile  
   var url = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
   var collisionsByLocation = "https://services.arcgis.com/G6F8XLCl5KtAlZ2G/arcgis/rest/services/Traffic_Collisions_by_Location_2015_to_2019/FeatureServer/0/query?where=1%3D1&outFields=Location,Total_Collisions,F2016_Total,F2017_Total,F2018_Total,F2019_Total,Total_Pedestrians,F2015_Pedestrians,F2016_Pedestrians,F2017_Pedestrians,F2018_Pedestrians,F2019_Pedestrians,F2015_Total&outSR=4326&f=json"
@@ -130,24 +121,22 @@ Promise.all ([
 	var uniqueCounterArr = [... new Set(counterArr)];
 	
 	if (uniqueCounterArr.length >= 6) {
-	  console.log("Kim")
-	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kim_Kardashian_2019.jpg")
-	  ranking.text("Your route is a Kim. Take necessary precautions.")
+	 
+	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kim_Kardashian_2019.jpg");
+	  ranking.text("Your route is a Kim. Take necessary precautions.");
 	   
 	} else if (uniqueCounterArr.length >= 4) {
-	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Khloe_Kardashian_Glamour_2.png/220px-Khloe_Kardashian_Glamour_2.png")
-	  console.log("Khloe")
-	  ranking.text("Your route is a Khloe. Relatively safe.")
+	  
+	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Khloe_Kardashian_Glamour_2.png/220px-Khloe_Kardashian_Glamour_2.png");
+	  ranking.text("Your route is a Khloe. Relatively safe.");
 	 
 	} else if (uniqueCounterArr.length >= 2) {
-	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kourtney_Kardashian_2_2009.jpg")
-	  console.log("Kourtney")
-	  ranking.text("Your route is a Kourtney. It's very safe")
+	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kourtney_Kardashian_2_2009.jpg");
+	  ranking.text("Your route is a Kourtney. It's very safe");
 	 
 	}  else  {
-	  image.attr("src", "http://www.gstatic.com/tv/thumb/persons/616912/616912_v9_ba.jpg")
-	  console.log("Rob")
-	  ranking.text("Your route is a Rob. No problems here!")
+	  image.attr("src", "http://www.gstatic.com/tv/thumb/persons/616912/616912_v9_ba.jpg");
+	  ranking.text("Your route is a Rob. No problems here!");
 	};
 });
 

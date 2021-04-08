@@ -85,7 +85,7 @@ header{
 
 #endLocation{
     background-color: rgb(75, 73, 74);
-    height: 50%;
+    height: auto;
     width: 50%;
     display: block;
     margin-left: auto;

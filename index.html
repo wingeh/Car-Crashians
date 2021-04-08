@@ -103,10 +103,6 @@ zoom: 12
 // initialize the map canvas to interact with later
 var canvas = map.getCanvasContainer();
 
-// an arbitrary start will always be the same
-// only the end or destination will change
-//var start = [-75.699234, 45.424807];
-
 map.on('load', function() {
   // make an initial directions request that
   // starts and ends at the same location
@@ -136,29 +132,8 @@ map.on('load', function() {
       'circle-color': '#3887be'
     }
   });
-  
-  map.on('click', function(e) {
-  var coordsObj = e.lngLat;
-  canvas.style.cursor = '';
-  var coords = Object.keys(coordsObj).map(function(key) {
-    return coordsObj[key];
-  });
-  var end = {
-    type: 'FeatureCollection',
-    features: [{
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'Point',
-        coordinates: coords
-      }
-    }
-    ]
-  };
-  if (map.getLayer('end')) {
-    map.getSource('end').setData(end);
-  } else {
-    map.addLayer({
+
+  map.addLayer({
       id: 'end',
       type: 'circle',
       source: {
@@ -180,10 +155,55 @@ map.on('load', function() {
         'circle-color': '#f30'
       }
     });
-  }
+
+  
+  // map.on('click', function(e) {
+  // var coordsObj = e.lngLat;
+  // canvas.style.cursor = '';
+  // var coords = Object.keys(coordsObj).map(function(key) {
+  //   return coordsObj[key];
+  // });
+  // var end = {
+  //   type: 'FeatureCollection',
+  //   features: [{
+  //     type: 'Feature',
+  //     properties: {},
+  //     geometry: {
+  //       type: 'Point',
+  //       coordinates: coords
+  //     }
+  //   }
+  //   ]
+  // };
+  // if (map.getLayer('end')) {
+  //   map.getSource('end').setData(end);
+  // } else {
+  //   map.addLayer({
+  //     id: 'end',
+  //     type: 'circle',
+  //     source: {
+  //       type: 'geojson',
+  //       data: {
+  //         type: 'FeatureCollection',
+  //         features: [{
+  //           type: 'Feature',
+  //           properties: {},
+  //           geometry: {
+  //             type: 'Point',
+  //             coordinates: coords
+  //           }
+  //         }]
+  //       }
+  //     },
+  //     paint: {
+  //       'circle-radius': 10,
+  //       'circle-color': '#f30'
+  //     }
+  //   });
+  // }
   getRoute(coords);
 });
-});
+//});
   </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -23,7 +23,7 @@ var geocodingEnd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + endLoc
 //get start and end location coordinates
 Promise.all ([
     fetch(geocodingStart),
-	fetch(geocodingEnd),
+	fetch(geocodingEnd)
 ])
 .then (function (responses) {
     return Promise.all(responses.map(function (response) {

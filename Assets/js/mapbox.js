@@ -121,20 +121,22 @@ Promise.all ([
 	var uniqueCounterArr = [... new Set(counterArr)];
 	
 	if (uniqueCounterArr.length >= 6) {
-	 
+	  image.css("display", "inline");
 	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kim_Kardashian_2019.jpg");
 	  ranking.text("Your route is a Kim. Take necessary precautions.");
 	   
 	} else if (uniqueCounterArr.length >= 4) {
-	  
+	  image.css("display", "inline");
 	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Khloe_Kardashian_Glamour_2.png/220px-Khloe_Kardashian_Glamour_2.png");
 	  ranking.text("Your route is a Khloe. Relatively safe.");
 	 
 	} else if (uniqueCounterArr.length >= 2) {
+	  image.css("display", "inline");
 	  image.attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kourtney_Kardashian_2_2009.jpg");
 	  ranking.text("Your route is a Kourtney. It's very safe");
-	 
+	  
 	}  else  {
+	  image.css("display", "inline");
 	  image.attr("src", "http://www.gstatic.com/tv/thumb/persons/616912/616912_v9_ba.jpg");
 	  ranking.text("Your route is a Rob. No problems here!");
 	};
